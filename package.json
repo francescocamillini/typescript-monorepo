@@ -1,0 +1,58 @@
+{
+    "name": "typescript-monorepo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint  --ignore-path .gitignore .",
+        "changelog": "standard-version --no-verify",
+        "changelog-minor": "standard-version --no-verify --release-as minor",
+        "changelog-patch": "standard-version --no-verify --release-as patch",
+        "first-release": "standard-version --first-release",
+        "clean": "lerna clean --yes && lerna bootstrap -- --production"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/francescocamillini/typescript-monorepo.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/francescocamillini/typescript-monorepo/issues"
+    },
+    "homepage": "https://github.com/francescocamillini/typescript-monorepo#readme",
+    "devDependencies": {
+        "@commitlint/config-angular": "^11.0.0",
+        "@types/prettier": "^2.1.5",
+        "@typescript-eslint/eslint-plugin": "^4.6.0",
+        "@typescript-eslint/parser": "^4.6.0",
+        "commitlint": "^11.0.0",
+        "dotenv": "^8.2.0",
+        "eslint": "^7.12.1",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-sonarjs": "^0.5.0",
+        "husky": "^4.3.0",
+        "jest": "^26.6.1",
+        "jest-mock-extended": "^1.0.10",
+        "jest-runner-groups": "^2.0.1",
+        "lerna": "^3.22.1",
+        "prettier": "^2.1.2",
+        "standard-version": "^9.0.0",
+        "ts-jest": "^26.4.3",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.5"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "standard-version": {
+        "skip": {
+            "tag": true
+        }
+    }
+}
